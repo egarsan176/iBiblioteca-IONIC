@@ -1,20 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Inicio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+
+<ion-content [fullscreen]="true">
+
+  <ion-img src="../../assets/iBib2.jpg" class="iBib2"></ion-img>
+
+  <ion-card color="#FF7E9F">
+
+    <ion-card-header>
+      <ion-card-title>Bienvenido a iBiblioteca!</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-text color="dark">
+        iBiblioteca es una aplicación desarrollada con Ionic que permite gestionar una biblioteca de un centro educativo.
+        Para acceder a la biblioteca pulsa en el siguiente botón:
+      </ion-text>
+    </ion-card-content>
+
+    <ion-button expand="block" color="#CC00FF">
+      <ion-icon slot="start" name="school"></ion-icon>
+      Acceso a iBiblioteca
+    </ion-button>
+
+  </ion-card>
+
+  <ion-card color="#FF7E9F">
+    <ion-card-header>
+      <ion-card-title>Información sobre la autora</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="dark">
+        Aplicación desarrollada por Estefanía García.
+      </ion-text>
+      <!-- <ion-item [routerLink]="['/autor']" class="activated" >
+        <ion-icon name="person" slot="start" color="dark"></ion-icon>
+        <ion-label>Consultar información</ion-label>
+      </ion-item> -->
+    </ion-card-content>
+
+    <ion-button expand="block" color="#CC00FF" [routerLink]="['/autor']">
+      <ion-icon slot="start" name="person"></ion-icon>
+      Consultar información
+    </ion-button>
+  </ion-card>
+
+  
+</ion-content> 
