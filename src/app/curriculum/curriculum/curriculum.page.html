@@ -1,9 +1,89 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>curriculum</ion-title>
+  <ion-toolbar color="#4C2F87">
+    <ion-title>Currículum</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>FORMACIÓN ACADÉMICA</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+        <ion-item class="title">
+          <ion-label>FECHA</ion-label>
+          <ion-label>CENTRO</ion-label>
+          <ion-label>TITULACIÓN</ion-label>
+        </ion-item>
+        <ion-item *ngFor="let study of studies">
+          <ion-label>{{ study.fecha }}</ion-label>
+          <ion-label>{{ study.empresa }}</ion-label>
+          <ion-label>{{ study.puesto }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>FORMACIÓN COMPLEMENTARIA</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+        <ion-item class="title">
+          <ion-label>FECHA</ion-label>
+          <ion-label>CENTRO</ion-label>
+          <ion-label>TITULACIÓN</ion-label>
+        </ion-item>
+        <ion-item *ngFor="let study of extraStudies">
+          <ion-label>{{ study.fecha }}</ion-label>
+          <ion-label>{{ study.empresa }}</ion-label>
+          <ion-label>{{ study.puesto }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    
+  </ion-card>
+
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>EXPERIENCIA PROFESIONAL</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+        <ion-item class="title">
+          <ion-label>FECHA</ion-label>
+          <ion-label>EMPRESA</ion-label>
+          <ion-label>OCUPACIÓN</ion-label>
+        </ion-item>
+        <ion-item *ngFor="let job of jobs">
+          <ion-label>{{ job.fecha }}</ion-label>
+          <ion-label>{{ job.empresa }}</ion-label>
+          <ion-label>{{ job.puesto }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+  
+  <ion-segment >
+    <ion-button color="#CC00FF" routerLink="/autor" >
+      <ion-icon slot="start" name="arrow-back-circle"></ion-icon>
+      Atrás
+    </ion-button>
+
+    <ion-button color="#CC00FF" routerLink="/home">
+      <ion-icon slot="start" name="home"></ion-icon>
+     Inicio
+    </ion-button>
+
+</ion-segment>
 
 </ion-content>

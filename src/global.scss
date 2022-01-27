@@ -35,12 +35,29 @@ ion-button {
   background: #ffbd37;
   color: #321752;
 }
+ion-button:hover {
+  background: #ff79a3;
+}
 
 ion-card {
   color: #321752;
   background: #f3f7fb;
 }
 
-ion-header {
-  background: #af2cf4;
+ion-toolbar {
+  background: #4c2f87;
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+ion-title {
+  font-size: xx-large;
+}
+
+a {
+  text-decoration: none;
+  color: #321752;
 }

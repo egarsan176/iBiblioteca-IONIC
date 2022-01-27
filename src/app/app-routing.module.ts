@@ -13,11 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'autor',
-    loadChildren: () => import('./autor/autor/autor.module').then( m => m.AutorPageModule)
+    loadChildren: () => import('./autor/autor.module').then( m => m.AutorPageModule)
   },
   {
     path: 'curriculum',
     loadChildren: () => import('./curriculum/curriculum/curriculum.module').then( m => m.CurriculumPageModule)
+  },
+  {
+    path: 'biblioteca',
+    loadChildren: () => import('./biblioteca/biblioteca/biblioteca.module').then( m => m.BibliotecaPageModule)
   },
 ];
 
