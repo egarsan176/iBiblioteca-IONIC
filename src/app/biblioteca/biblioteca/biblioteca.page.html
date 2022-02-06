@@ -6,8 +6,11 @@
 
 <ion-content>
 
+
+  <app-input-busqueda (onEnter)="getBiblioteca($event)"></app-input-busqueda> <!-- introduzco el componente del cuadro de búsqueda-->
+  
   <ion-list>
-    <ion-item *ngFor="let libro of biblioteca">
+    <ion-item button *ngFor="let libro of biblioteca">
 
       <ion-thumbnail>
         <img src="https://covers.openlibrary.org/b/isbn/{{libro.isbn[4]}}-M.jpg">
@@ -25,7 +28,7 @@
         </ion-text>
       </ion-label>
 
-      <a href="#"><ion-icon  name="chevron-forward">
+      <a [routerLink]="['/detalle', libro.isbn[4]]"><ion-icon  name="chevron-forward">  <!--ir a la página de detalle con la info del libro -->
       </ion-icon></a>
 
     </ion-item>
