@@ -4,10 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-toolbar>
+    <ion-searchbar placeholder="Buscar Libros" animated debounce="700" [value]="busqueda" (ionChange)="getBiblioteca($event)"> </ion-searchbar>
+</ion-toolbar>
+
 <ion-content>
 
+  <!-- para mostrar un loading mientras se resuelve la petición-->
+<div class="loading first" *ngIf="cargando">
+  <div class="loading second">
+    <div class="loading third"></div>  
+  </div>  
+</div>
 
-  <app-input-busqueda (onEnter)="getBiblioteca($event)"></app-input-busqueda> <!-- introduzco el componente del cuadro de búsqueda-->
+  <!--<app-input-busqueda (onEnter)="getBiblioteca($event)"></app-input-busqueda> -- introduzco el componente del cuadro de búsqueda-->
   
   <ion-list>
     <ion-item button *ngFor="let libro of biblioteca">

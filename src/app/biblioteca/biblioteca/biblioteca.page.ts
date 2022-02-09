@@ -13,6 +13,7 @@ export class BibliotecaPage implements OnInit {
   biblioteca: Doc[] = [];   //necesito declarar un array de Doc porque yo quiero guardar del objeto biblioteca la propiedad docs:  Doc[];
   
   busqueda: string = ''; 
+  cargando: boolean;
 
   constructor(private bibService: BibliotecaService) { }
 
@@ -36,13 +37,15 @@ export class BibliotecaPage implements OnInit {
     
   //   }
 
-  getBiblioteca(busqueda: string){
-    this.busqueda = busqueda; //igualo la propiedad a la que le paso por parámetro del input de búsqueda
+  getBiblioteca(event){
+    this.cargando=true;
+    this.busqueda = event.detail.value; //igualo la propiedad al evento que le paso por el input de busqueda
     this.bibService.getBibliotecaPeticion(this.busqueda)
     .subscribe({
             next: data =>{
                 console.log(data)
                 this.biblioteca = data.docs;  //igualo mi variable a la propiedad docs[] de la respuesta
+                this.cargando=false;
             },
             error: e =>{
                 console.log(e)
