@@ -17,7 +17,7 @@ export class DetallePage implements OnInit {
               private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getLibro();  //para realizar la llamada en cuanto se cargue la página
+    this.getLibro();  //para realizar la llamada a la petición en cuanto se cargue la página
   }
 
   getLibro(){

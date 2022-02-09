@@ -1,10 +1,12 @@
 <ion-header>
   <ion-toolbar color="#4C2F87">
-    <ion-title>
+    <ion-title *ngIf="ver">  
       <a routerLink="/biblioteca"><ion-icon  name="caret-back-outline"></ion-icon></a>
       {{ libro.title }}</ion-title>
     <!-- preguntar Joaquín
-      no funciona atrás porque en la ruta ya estoy en /biblioteca en vez de en /detalles -->
+      no funciona atrás porque en la ruta ya estoy en /biblioteca en vez de en /detalles 
+    SOLUCIÓN  estoy intentando leer una propiedad undefined porque el libro aún no está cargado,
+    cuando se resuelve la petición la propiedad cambia a true y ya se puede mostrar-->
   </ion-toolbar>
 </ion-header>
 
