@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { Biblioteca, Doc } from '../biblio-interface';
 import { BibliotecaService } from '../biblioteca.service';
 
@@ -15,7 +17,22 @@ export class BibliotecaPage implements OnInit {
   busqueda: string = ''; 
   cargando: boolean;
 
-  constructor(private bibService: BibliotecaService) { }
+  encodedData: any;
+  scannedBarCode: {};
+  barcodeScannerOptions: BarcodeScannerOptions;
+
+
+  constructor(private bibService: BibliotecaService,
+              private scanner: BarcodeScanner,
+              private route: Router) { 
+
+                this.encodedData = "Programming isn't about what you know";
+      
+      this.barcodeScannerOptions = {
+        showTorchButton: true,
+        showFlipCameraButton: true
+      };
+              }
 
   ngOnInit() {
     //this.getBiblioteca(); //para que se cargue el listado al iniciar la página
@@ -51,6 +68,16 @@ export class BibliotecaPage implements OnInit {
                 console.log(e)
             }
           })
+  }
+
+
+  scanBRcode() {
+    this.scanner.scan().then(res => {
+        this.scannedBarCode = res;
+        this.route.navigate(['/detalle', res.text])
+      }).catch(err => {
+        alert(err);
+      });
   }
 
   

@@ -1,14 +1,25 @@
 <ion-header>
   <ion-toolbar color="#4C2F87">
-    <ion-title>Biblioteca</ion-title>
+    <ion-title> <a routerLink="/home"><ion-icon  name="caret-back-outline"></ion-icon></a>Biblioteca</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- barra de búsqueda -->
 <ion-toolbar>
-    <ion-searchbar placeholder="Buscar Libros" animated debounce="700" [value]="busqueda" (ionChange)="getBiblioteca($event)"> </ion-searchbar>
+  <ion-searchbar placeholder="Buscar Libros" animated debounce="700" [value]="busqueda" (ionChange)="getBiblioteca($event)"> </ion-searchbar>
+  <ion-button fill="clear"  (click)="scanBRcode()"><ion-icon slot="icon-only" name="barcode" color="dark" style="zoom:2.0;"></ion-icon></ion-button>
 </ion-toolbar>
 
 <ion-content>
+
+  <div *ngIf="scannedBarCode">
+    <ion-item>
+        Scanned code output: <strong>{{ scannedBarCode["text"] }}</strong>
+    </ion-item>
+    <ion-item>
+        Scanned code output: <strong>{{ scannedBarCode["format"] }}</strong>
+    </ion-item>
+  </div>
 
   <!-- para mostrar un loading mientras se resuelve la petición-->
 <div class="loading first" *ngIf="cargando">

@@ -18,7 +18,7 @@ export class BibliotecaService {
   //devuelve el observable de tipo biblioteca
   getBibliotecaPeticion(busqueda: string): Observable<Biblioteca>{
 
-    //guardo en una constante los parámetros del título y del límite de 7 
+    //guardo en una constante los parámetros del título y del límite de 10 
      const params = new HttpParams()
     .set('title', busqueda) //paso en el title el input del cuadro de búsqueda
     .set('limit', '7');
