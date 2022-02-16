@@ -9,6 +9,7 @@ import { BibliotecaPageRoutingModule } from './biblioteca-routing.module';
 import { BibliotecaPage } from './biblioteca.page';
 import { RouteReuseStrategy } from '@angular/router';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { StorageService } from '../storage.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     FormsModule,
     IonicModule,
     BibliotecaPageRoutingModule
-  ],  providers: [
+  ],  
+  providers: [
     BarcodeScanner,
     { 
       provide: RouteReuseStrategy, 

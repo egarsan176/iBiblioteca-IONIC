@@ -8,17 +8,21 @@ import { DetallePageRoutingModule } from './detalle-routing.module';
 
 import { DetallePage } from './detalle.page';
 import { BibliotecaService } from '../biblioteca/biblioteca.service';
+import { StorageService } from '../biblioteca/storage.service';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetallePageRoutingModule
+    DetallePageRoutingModule,
+    IonicStorageModule.forRoot()
   ],
   declarations: [DetallePage],
   providers: [
-    BibliotecaService
+    BibliotecaService,
+    StorageService
   ]
 })
 export class DetallePageModule {}
