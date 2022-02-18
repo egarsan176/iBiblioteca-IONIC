@@ -7,7 +7,7 @@ import { Doc } from './biblio-interface';
 })
 export class StorageService {
 
-  favoritos: Doc[] = [];
+  _favoritos: Doc[] = [];
 
   constructor(private storage: Storage) {
     this.init();
@@ -16,7 +16,6 @@ export class StorageService {
   async init(){
     await this.storage.create();  //el await es la promesa que le estamos pidiendo que nos cree el localStorage
   }
-
 
   //para devolver un libro en concreto del localStorage
   async findFavoriteBook(storageKey: string){
@@ -38,13 +37,20 @@ export class StorageService {
     await this.storage.clear();
   }
 
+  //para conseguir todos los libros favoritos
   async getAllFavorites(){
-    for (let index = 0; index < localStorage.length; index++) {
-      const element = localStorage[index];
-      this.favoritos.push(element)
-      
-    }
-    return this.favoritos;
+
+    this.storage.forEach((key, value) => {
+      this._favoritos.push(key);
+    }); 
+  
+    //console.log(this._favoritos)
+    return this._favoritos;
+  }
+
+  //devuelve el listado de libros favoritos del servicio
+  getFavoritos(){
+    return [...this._favoritos]
   }
 
 

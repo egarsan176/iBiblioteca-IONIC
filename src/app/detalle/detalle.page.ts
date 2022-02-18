@@ -23,7 +23,7 @@ export class DetallePage implements OnInit {
 
   ngOnInit() {
     this.getLibro();  //para realizar la llamada a la petición en cuanto se cargue la página
-    
+    this.storageService.getAllFavorites();
   }
 
   getLibro(){
@@ -33,7 +33,7 @@ export class DetallePage implements OnInit {
         console.log(data)
         this.libro = data.docs[0];
         this.ver = true;
-        this.checkFavorito(this.libro);
+        this.checkFavorito(this.libro); //no lo puedo poner en el init porque si lo hago no funciona el enlace de atrás (de debe a que el libro todavía no se ha cargado hasta que no se hace la petición)
       },
       error: e =>{
         console.log(e);
@@ -62,12 +62,14 @@ export class DetallePage implements OnInit {
         }
       }
     )
-    
 
-    
   }
 
 
+  mostrar(){    
+    this.librosFav = this.storageService._favoritos;
+    console.log(this.librosFav);
+  }
 
 
 
