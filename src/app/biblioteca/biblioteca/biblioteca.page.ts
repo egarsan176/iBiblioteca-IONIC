@@ -60,7 +60,7 @@ export class BibliotecaPage implements OnInit {
     this.bibService.getBibliotecaPeticion(this.busqueda)
     .subscribe({
             next: data =>{
-                console.log(data)
+                //console.log(data)
                 this.biblioteca = data.docs;  //igualo mi variable a la propiedad docs[] de la respuesta
                 this.cargando=false;
             },

@@ -44,5 +44,31 @@
     
   </div>
 
-  <ion-button (click)="mostrar()">VER FAVORITOS</ion-button>
+  <ion-button color="#CC00FF" (click)="mostrar()">VER MIS FAVORITOS</ion-button>
+  <span  *ngIf="mostrarFav">
+    <ion-card *ngFor="let fav of librosFav">
+      
+      <img src="http://covers.openlibrary.org/b/isbn/{{fav.isbn[2]}}-M.jpg">
+
+    <ion-card-header>
+      <ion-card-title>{{ fav.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+     
+        <ion-text color="dark">
+            <p><b>Autor:</b> {{fav.author_name}}</p>
+        </ion-text>
+        <ion-text color="dark">
+            <p><b>Año:</b> {{fav.first_publish_year}}</p>
+        </ion-text>
+        <ion-text color="dark">
+            <p><b>ISBN:</b> {{fav.isbn[2]}}</p>
+        </ion-text>
+        <ion-text color="dark">
+            <p><b>Editorial: {{fav.publisher[0]}} </b></p>
+        </ion-text>
+       
+    </ion-card-content>
+  </ion-card>
+  </span>
 </ion-content>

@@ -27,3 +27,23 @@ ion-button {
 ion-button:hover {
   background: #ff79a3;
 }
+
+/*tamaño de la imagen en móvil*/
+@media screen and (max-width: 480px) {
+  .iBib2 {
+    width: 60%;
+  }
+}
+
+/* tamaño de la imagen en tablets*/
+@media screen and (min-width: 481px) and (max-width: 846px) {
+  .iBib2 {
+    width: 40%;
+  }
+}
+/* tamaño de la imagen  en pc*/
+@media screen and (min-width: 847px) and (max-width: 2200px) {
+  .iBib2 {
+    width: 20%;
+  }
+}

@@ -16,6 +16,7 @@ export class DetallePage implements OnInit {
   libro: Doc;
   isFavorito: boolean = false;
   librosFav: Doc[] = [];
+  mostrarFav : boolean = false;
 
   constructor(private bibService : BibliotecaService,
               private activeRoute: ActivatedRoute,
@@ -30,7 +31,7 @@ export class DetallePage implements OnInit {
     this.bibService.getLibroPeticion(this.activeRoute.snapshot.params["isbn"])
     .subscribe({
       next: data =>{
-        console.log(data)
+        //console.log(data)
         this.libro = data.docs[0];
         this.ver = true;
         this.checkFavorito(this.libro); //no lo puedo poner en el init porque si lo hago no funciona el enlace de atrás (de debe a que el libro todavía no se ha cargado hasta que no se hace la petición)
@@ -68,6 +69,7 @@ export class DetallePage implements OnInit {
 
   mostrar(){    
     this.librosFav = this.storageService._favoritos;
+    this.mostrarFav = true;
     console.log(this.librosFav);
   }
 
